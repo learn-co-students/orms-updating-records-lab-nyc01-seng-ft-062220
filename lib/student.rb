@@ -37,7 +37,7 @@ class Student
   end
 
   def self.new_from_db(row)
-    self.new(row[1],row[2], row[0])
+    self.new(row[1], row[2], row[0])
   end
 
 
@@ -69,6 +69,8 @@ class Student
       SQL
 
       DB[:conn].execute(sql, self.name, self.grade)
+
+      #* https://www.sqlite.org/c3ref/last_insert_rowid.html
       @id = DB[:conn].execute("SELECT last_insert_rowid() FROM students")[0][0]
     end
   end
