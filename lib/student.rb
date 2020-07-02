@@ -47,7 +47,7 @@ class Student
   end
 
   def self.create(name, grade) #create a student with two att. and saves it into the students table (name vs name: )
-    student = Student.new(name, grade)
+    student = Student.new(name:, grade:)
     student.save
     student
   end
