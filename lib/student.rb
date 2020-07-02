@@ -47,7 +47,7 @@ class Student
   end
 
   def self.create(name, grade) #create a student with two att. and saves it into the students table (name vs name: )
-    student = Student.new(name:, grade:)
+    student = Student.new(name, grade)
     student.save
     student
   end
@@ -65,9 +65,6 @@ class Student
     SQL
     
     DB[:conn].execute(sql, name).map {|record| self.new_from_db(record)}.first
- #   DB[:conn].execute(sql, name).map do |row|
- #     self.new_from_db(row)
- #   end.first
   end
 
   def update
